@@ -1,8 +1,18 @@
-#include<string>
-#include<vector>
-#include"bitmap.h"
+#include <string>
+#include <vector>
+#include "bitmap.h"
+
+using namespace std;
 int main()
 {
+ Bitmap picture;
+ vector <vector <Pixel> > bitmap;
+
+ picture.open("machupicchu.bmp");
+
+ bitmap = picture.toPixelMatrix();
+ cout<<"machipicchu.bmp has been loaded. It is "<<bitmap[0].size()<<" pixels wide ";
+ cout<<"and "<< bitmap.size()<< " pixels high."<<endl;
 /*
 -initialize program with correct variables
     -bitmap matrix made of vectors
