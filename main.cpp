@@ -5,15 +5,37 @@
 using namespace std;
 int main()
 {
+
  Bitmap picture;
  vector <vector <Pixel> > bitmap;
-
+ Pixel dot;
  picture.open("machupicchu.bmp");
+
 
  bitmap = picture.toPixelMatrix();
  cout<<"machipicchu.bmp has been loaded. It is "<<bitmap[0].size()<<" pixels wide ";
  cout<<"and "<< bitmap.size()<< " pixels high."<<endl;
-/*
+
+ for(int i=0;i<bitmap.size();i++)
+ {
+    for(int j = 0; j<bitmap[i].size(); j++)
+    {
+        int ave;
+        dot = bitmap[i][j];
+        ave = ((dot.red + dot.blue + dot.green)/3);
+        dot.red =ave;
+        dot.blue=ave;
+        dot.green=ave;
+        bitmap[i][j] = dot;
+
+ }
+}
+picture.fromPixelMatrix(bitmap);
+picture.save("oldTimeyPhoto.bmp");
+
+
+
+ /*
 -initialize program with correct variables
     -bitmap matrix made of vectors
     -integer for each pixels rgb
@@ -33,4 +55,3 @@ int main()
 */
 return 0;
 }
-
