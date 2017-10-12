@@ -1,19 +1,27 @@
 #include <string>
 #include <vector>
 #include "bitmap.h"
-
+#include<iostream>
 using namespace std;
 int main()
 {
-
  Bitmap picture;
  vector <vector <Pixel> > bitmap;
  Pixel dot;
- picture.open("machupicchu.bmp");
+ bool valid = false;
+ string file;
+do{
+ cout<<"Enter the name of a bitmap file you would like to convert."<<endl;
+ cin>>file;
 
+ picture.open(file);
+ valid = picture.isImage();
+
+  }
+while(valid == false);
 
  bitmap = picture.toPixelMatrix();
- cout<<"machipicchu.bmp has been loaded. It is "<<bitmap[0].size()<<" pixels wide ";
+ cout<<file<<" has been loaded. It is "<<bitmap[0].size()<<" pixels wide ";
  cout<<"and "<< bitmap.size()<< " pixels high."<<endl;
 
  for(int i=0;i<bitmap.size();i++)
