@@ -39,7 +39,7 @@ while(valid == false);
  }
 }
 picture.fromPixelMatrix(bitmap);
-picture.save("oldTimeyPhoto.bmp");
+picture.save("Test.bmp");
 
 
 
